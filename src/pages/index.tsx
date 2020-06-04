@@ -1,49 +1,77 @@
-import React, { useEffect, useState } from 'react';
-import { useRequest, request, useIntl, setLocale, connect, GlobalModelState, ConnectRC, Loading, currentTabType } from 'umi';
+import React, { useEffect, useCallback } from 'react';
+import {
+  useIntl,
+  setLocale,
+  GlobalModelState,
+  ConnectRC,
+  Loading,
+  useSelector,
+  useDispatch,
+} from 'umi';
 import { useResponsive } from '@umijs/hooks';
 import styles from './index.less';
 
 interface Props {
-  currentTab: currentTabType;
+  userName: string;
   loginLoading: boolean | undefined;
 }
 
-const Page: ConnectRC<Props> = ({ currentTab, loginLoading, dispatch }) => {
-
-  const [name, setName] = useState<string>('');
+const Page: ConnectRC<Props> = () => {
   const intl = useIntl();
-  const { data, error, loading } = useRequest(() => {
-    return request('/api/user/name');
-  })
+  const dispatch = useDispatch();
 
-  console.log(data, error, loading, '=========== useRequest =========');
+  const { userName, loginLoading }: Props = useSelector(
+    ({
+      globalstate,
+      loading,
+    }: {
+      globalstate: GlobalModelState;
+      loading: Loading;
+    }) => ({
+      userName: globalstate.userName,
+      loginLoading: loading.effects['globalstate/login'],
+    }),
+  );
+
+  const login = useCallback(
+    () =>
+      dispatch &&
+      dispatch({
+        type: 'globalstate/login',
+      }),
+    [dispatch],
+  );
 
   useEffect(() => {
-
-    dispatch && dispatch({
-      type: 'globalstate/login'
-    })
+    login();
   }, []);
-
-  console.log(currentTab, '------ currentTab --------');
-  console.log(loginLoading, '--------- loginLoading --------');
 
   const responsive = useResponsive();
 
   return (
     <div>
-      <h1 className={styles.title}>{intl.formatMessage({ id: 'index.title' })}, <span style={{ color: responsive.lg ? "blue" : "yellow" }}>{name}</span></h1>
-      <button onClick={() => {
-        setLocale('zh-CN', false);
-      }}>zn-CN</button>
-      <button onClick={() => {
-        setLocale('en-US', false);
-      }}>en-US</button>
+      <h1 className={styles.title}>
+        {intl.formatMessage({ id: 'index.title' })},{' '}
+        <span style={{ color: responsive.lg ? 'blue' : 'yellow' }}>
+          {loginLoading ? 'loading...' : userName}
+        </span>
+      </h1>
+      <button
+        onClick={() => {
+          setLocale('zh-CN', false);
+        }}
+      >
+        zn-CN
+      </button>
+      <button
+        onClick={() => {
+          setLocale('en-US', false);
+        }}
+      >
+        en-US
+      </button>
     </div>
   );
-}
+};
 
-export default connect(({ globalstate, loading }: { globalstate: GlobalModelState, loading: Loading }) => ({
-  currentTab: globalstate.currentTab,
-  loginLoading: loading.effects['globalstate/login']
-}))(Page)
+export default Page;

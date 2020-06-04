@@ -1,4 +1,5 @@
 import { Effect, ImmerReducer, Subscription } from 'umi';
+import { fetchUserName } from '@/services/user';
 
 export type currentTabType = 'home' | 'models'; //当前选中的 header tab item:  'home' | 'models'
 
@@ -6,7 +7,8 @@ export interface GlobalModelState {
   currentTab: currentTabType;
   isShowShouldLoginModal: boolean; // 是否显示 login 提示 modal
   globalSearchValue: string; // 全局搜索 value
-  searchResultList: {}[] //搜索结果
+  searchResultList: {}[]; //搜索结果
+  userName: string; // 当前登录用户名
 }
 
 export interface GlobalModelType {
@@ -25,18 +27,19 @@ export interface GlobalModelType {
   }
 }
 
-const GlobalModel: GlobalModelType =  {
+const GlobalModel: GlobalModelType = {
   namespace: "globalstate",
   state: {
     currentTab: "home",
     isShowShouldLoginModal: false,
     globalSearchValue: "",
-    searchResultList: []
+    searchResultList: [],
+    userName: ""
   },
   reducers: {
     updateStateFieldsByCover: (state, action) => {
-      const {payload} = action;
-      return {...state, ...payload};
+      const { payload } = action;
+      return { ...state, ...payload };
     }
   },
   effects: {
@@ -62,40 +65,34 @@ const GlobalModel: GlobalModelType =  {
         }
       });
     },
-    *login() {
-      function sleep(): Promise<string> {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            return resolve('ok')
-          }, 2000)
-        })
+    *login(_, { call, put }) {
+      const ret = yield call(fetchUserName);
+      if (!ret) {
+        return Promise.reject('error');
       }
-      return yield sleep();
+      const { name } = ret;
+
+      yield put({
+        type: 'updateStateFieldsByCover',
+        payload: {
+          userName: name
+        }
+      })
+      return Promise.resolve();
     },
     *logout() {
+      console.log('logout');
       // 退出登陆删除 用户登录信息
       return Promise.resolve("success");
     }
   },
   subscriptions: {
-    setup({ dispatch, history }) {
-      function changeGlobalTab(tabName = "") {
-        dispatch({
-          type: "updateStateFieldsByCover",
-          payload: {
-            currentTab: tabName
-          }
-        });
-      }
-      return history.listen((his) => {
-        const {pathname, query} = his as (typeof his & {query: {}});
-        // if (pathname === "/home") {
-        //   changeGlobalTab("home");
-        // } else if (pathname === "/design/list") {
-        //   changeGlobalTab("models");
-        // } else {
-        //   changeGlobalTab("");
-        // }
+    setup({ history, /*dispatch*/ }) {
+      // dispatch({
+      //   type: 'login'
+      // })
+      return history.listen(({ pathname }) => {
+        console.log(pathname);
       });
     }
   }

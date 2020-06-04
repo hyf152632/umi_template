@@ -1,7 +1,34 @@
 import { delay } from './utils/delay';
 
+// interface ErrorInfoStructure {
+//   success: boolean; // if request is success
+//   data?: any; // response data
+//   errorCode?: string; // code for errorType
+//   errorMessage?: string; // message display to user
+//   showType?: number; // error display type： 0 silent; 1 message.warn; 2 message.error; 4 notification; 9 page
+//   traceId?: string; // Convenient for back-end Troubleshooting: unique request ID
+//   host?: string; // onvenient for backend Troubleshooting: host of current access server
+// }
+
+const errorUserNameData = {
+  success: false,
+  errorCode: 1,
+  errorMessage: 'can not get user name',
+  showType: 2
+}
+
+const userNameData = {
+  success: true,
+  data: {name: 'huo'},
+  errorCode: 0
+}
+
 const proxy = {
-  'GET /api/user/name': { data: {name: 'umi'}},
+  'GET /api/user/name': userNameData,
+  // 'GET /api/user/name': errorUserNameData,
+  // 'GET /api/user/name': (req, res) => {
+  //   res.status(404).send('not found');
+  // },
   // 支持值为 Object 和 Array
   'GET /api/users': { users: [1, 2] },
   // GET 类型不能存在 queryString, 形如 a?name=b, 其中 ?name=b 不能直接加上
