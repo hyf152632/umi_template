@@ -14,7 +14,7 @@ const errorUserNameData = {
   success: false,
   errorCode: 1,
   errorMessage: 'can not get user name',
-  showType: 2
+  showType: 9
 }
 
 const userNameData = {

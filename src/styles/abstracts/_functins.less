@@ -1,0 +1,37 @@
+@import './_media_conds.less';
+
+.media-dark(@rules) {
+  @media (prefers-color-scheme: dark) {
+    @rules();
+  }
+}
+
+.media-light(@rules) {
+  @media (prefers-color-scheme: light) {
+    @rules();
+  }
+}
+
+.media-mobile(@rules) {
+  @media @mobile {
+    @rules();
+  }
+}
+
+.media-tablet(@rules) {
+  @media @tablet {
+    @rules();
+  }
+}
+
+.media-desktop(@rules) {
+  @media @desktop {
+    @rules();
+  }
+}
+
+.media-desktop-xl(@rules) {
+  @media @desktop-xl {
+    @rules();
+  }
+}

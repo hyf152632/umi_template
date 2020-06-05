@@ -33,7 +33,7 @@ const Page: ConnectRC<Props> = () => {
     }),
   );
 
-  const login = useCallback(
+  const login: any = useCallback(
     () =>
       dispatch &&
       dispatch({
@@ -43,7 +43,7 @@ const Page: ConnectRC<Props> = () => {
   );
 
   useEffect(() => {
-    login();
+    login().catch(console.log);
   }, []);
 
   const responsive = useResponsive();
