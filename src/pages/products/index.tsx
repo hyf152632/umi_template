@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'umi';
+import { Link } from 'umi';
 
 function Product() {
   return (
@@ -59,7 +59,7 @@ function Product() {
         perferendis impedit eos explicabo!
       </p>
       <div style={{ textAlign: 'center' }}>
-        <NavLink to="/">to index page</NavLink>
+        <Link to="/">to index page</Link>
       </div>
     </div>
   );

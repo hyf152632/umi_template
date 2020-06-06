@@ -1,4 +1,8 @@
 import { RequestConfig, /*ErrorShowType*/ } from 'umi';
+import { onClientEntry } from '@/vendors/gatsby-browser';
+
+
+onClientEntry({ color: '#2d00f6' });
 
 // 运行时 request 配置
 export const request: RequestConfig = {

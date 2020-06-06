@@ -24,14 +24,16 @@ function useEnterAnimation<T extends HTMLElement>({ isSingleUse = true, isUseOpa
       ref.current.style.opacity = '0.5';
     }
 
-    ref.current.style.transform = 'translateY(10px)';
+    ref.current.style.transform = 'translateY(15px)';
   }
 
   if (inViewPort) {
     if (ref) {
-      ref.current.style.opacity = '1';
+      if (isUseOpacity) {
+        ref.current.style.opacity = '1';
+      }
       ref.current.style.transform = 'translateY(0px)';
-      ref.current.style.transition = 'opacity ease-out 1s, transform ease-out 1s';
+      ref.current.style.transition = 'opacity ease-out 0.3s, transform ease-out 0.5s';
     }
   }
   return [ref]
