@@ -19,7 +19,7 @@ const errorUserNameData = {
 
 const userNameData = {
   success: true,
-  data: {name: 'huo'},
+  data: {name: 'ivi'},
   errorCode: 0
 }
 

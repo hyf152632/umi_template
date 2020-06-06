@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
+import logo from '@/assets/logo.png';
 import {
   useIntl,
   setLocale,
@@ -7,8 +8,10 @@ import {
   Loading,
   useSelector,
   useDispatch,
+  Link,
 } from 'umi';
 import { useResponsive } from '@umijs/hooks';
+import useEnterAnimation from '@/hooks/useEnterAnimation';
 import styles from './index.less';
 
 interface Props {
@@ -48,6 +51,8 @@ const Page: ConnectRC<Props> = () => {
 
   const responsive = useResponsive();
 
+  const [enterAnimationRef] = useEnterAnimation<HTMLImageElement>();
+
   return (
     <div>
       <h1 className={styles.title}>
@@ -56,20 +61,199 @@ const Page: ConnectRC<Props> = () => {
           {loginLoading ? 'loading...' : userName}
         </span>
       </h1>
-      <button
-        onClick={() => {
-          setLocale('zh-CN', false);
-        }}
-      >
-        zn-CN
-      </button>
-      <button
-        onClick={() => {
-          setLocale('en-US', false);
-        }}
-      >
-        en-US
-      </button>
+      <div>
+        <p>this is index page.</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            setLocale('zh-CN', false);
+          }}
+        >
+          zn-CN
+        </button>
+        <button
+          onClick={() => {
+            setLocale('en-US', false);
+          }}
+        >
+          en-US
+        </button>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <Link to="/product">to product page</Link>
+      </div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <img src={logo} alt="logo" ref={enterAnimationRef} />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit
+          magni, saepe commodi totam quod ducimus facere laborum corrupti.
+          Ducimus iusto possimus accusamus ea ex odit quia reprehenderit at
+          vero.
+        </p>
+      </div>
     </div>
   );
 };
