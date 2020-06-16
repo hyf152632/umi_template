@@ -57,7 +57,7 @@ const Page: ConnectRC<Props> = () => {
   return (
     <div>
       <h1 className={styles.title}>
-        {intl.formatMessage({ id: 'index.title' })},{' '}
+        <span>{intl.formatMessage({ id: 'index.title' })}, </span>
         <span style={{ color: responsive.lg ? 'blue' : 'yellow' }}>
           {loginLoading ? 'loading...' : userName}
         </span>

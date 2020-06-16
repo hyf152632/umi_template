@@ -1,11 +1,11 @@
 import { useMedia } from 'react-use';
 
 export const lightColors = {
-  mainColor: '#193BDE',
+  baseColor: '#193BDE',
 };
 
 export const darkColors = {
-  mainColor: '#193BDE',
+  baseColor: '#193BDE',
 };
 
 export default function() {

@@ -1,0 +1,25 @@
+@import './../styles/abstracts/_mixins.less';
+@import './../styles/abstracts/_variables.less';
+
+.pc_wrapper {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  .flex-align-center-space-between;
+  .transparent-background-color;
+  .margin-0-auto;
+  height: @pc-header-heigth;
+  padding: 0 @pc-header-padding-horizontal;
+  max-width: @pc-header-max-width;
+}
+.pc_wrapper_left {
+  .flex-align-center;
+}
+.pc_wrapper_left_logo {
+  margin-right: 48px;
+}
+.pc_wrapper_left_dropdown_wrapper {
+  .flex-align-center;
+}

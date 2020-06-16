@@ -1,0 +1,44 @@
+@import './../../styles/abstracts/_mixins.less';
+@import './../../styles/abstracts/_variables.less';
+@import './../../styles/base/_animation.less';
+
+.wrapper {
+  position: relative;
+}
+.label_row {
+  .user-select-no;
+  .cursor-pointer;
+  min-width: 60px;
+  margin-right: 48px;
+  .flex-align-center-space-between;
+}
+.label_row_align_center {
+  justify-content: center;
+}
+.label_row_arrow {
+  margin-left: 16px;
+  transform: scale(0.8);
+  color: @general-text;
+  .transition-properties(transform 0.25s;);
+  .user-select-no;
+  &:hover {
+    .base-color;
+  }
+}
+.label_row_arrow_actived {
+  transform: scale(0.8) rotate(180deg);
+}
+.label_row_arrow_disabled {
+  .cursor-not-allowed;
+}
+.popover_wrapper {
+  min-width: 100%;
+  position: absolute;
+  top: calc(100% + 15px);
+  left: -16px;
+  .white-background-color;
+}
+.popover_item {
+  padding: 5px 16px;
+  .cursor-pointer;
+}

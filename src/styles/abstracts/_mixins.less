@@ -2,30 +2,69 @@
 @import './_variables_dark.less';
 @import './_functins.less';
 
+.user-select-no {
+  user-select: none;
+}
+
+.margin-0-auto {
+  margin: 0 auto;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.base-hover-background-color {
+  .media-dark({background-color: @active-color-dark;});
+  background-color: @active-color;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-color-white {
+  color: @text-white;
+}
+
+.transparent-background-color {
+  background-color: transparent;
+}
+
+.white-background-color {
+  background-color: @white;
+}
+
+.auxiliary-border-color {
+  .media-dark({border-color: @auxiliary-color;});
+  border-color: @auxiliary-color;
+}
+
+.base-border-color {
+  .media-dark({border-color: @base-color-dark;});
+  border-color: @base-color;
+}
+
+.base-background-color {
+  .media-dark({background-color: @base-color-dark;});
+  background-color: @base-color;
+}
 .base-color {
-  .media-dark( {
-      .media-mobile( {
-          color: red;
-        }
-
-      );
-    }
-
-  );
-
-  .media-tablet( {
-      .media-dark( {
-          color: blue;
-        }
-
-      );
-
-    }
-
-  );
-
+  .media-dark({color: @base-color-dark;});
   color: @base-color;
 }
+
+// .base-color {
+//   .media-dark({.media-mobile({color: red;}) ;});
+
+//   .media-tablet({.media-dark({color: blue;}) ;});
+
+//   color: @base-color;
+// }
 
 .link-color {
   color: @base-color;
@@ -37,20 +76,22 @@
   }
 }
 
-
 .flex {
   display: flex;
 }
 
-.flex-align-center-space-between {
+.flex-align-center {
   .flex;
   align-items: center;
+}
+
+.flex-align-center-space-between {
+  .flex-align-center;
   justify-content: space-between;
 }
 
 .flex-align-center-space-around {
-  .flex;
-  align-items: center;
+  .flex-align-center;
   justify-content: space-around;
 }
 
@@ -61,7 +102,6 @@
 }
 
 .custom-scroll-bar {
-
   /*定义滚动条高宽及背景
  高宽分别对应横竖滚动条的尺寸*/
   &::-webkit-scrollbar {

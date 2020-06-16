@@ -1,0 +1,60 @@
+@import './../../styles/abstracts/_mixins.less';
+@import './../../styles/abstracts/_variables.less';
+@import './../../styles/base/_animation.less';
+
+.wrapper {
+  width: @btn-default-width;
+  height: @btn-default-height;
+  border-radius: @btn-default-border-radius;
+  .font-size-16;
+  line-height: 1;
+  &:focus {
+    outline: none;
+  }
+}
+.default_wrapper {
+  .white-background-color;
+  .auxiliary-border-color;
+  .transition-properties(border-color 0.25s linear, color 0.25s linear;);
+  &:hover {
+    .cursor-pointer;
+    .base-border-color;
+    .base-color;
+  }
+}
+.primary_wrapper {
+  .text-color-white;
+  .base-background-color;
+  border: none;
+  .transition-properties(background-color 0.25s linear;);
+  &:hover {
+    .cursor-pointer;
+    .base-hover-background-color;
+  }
+}
+.link_wrapper,
+.link_wrapper_disabled {
+  border: none;
+  .transparent-background-color;
+}
+.link_wrapper {
+  .transition-properties(color 0.25s linear;);
+  &:hover {
+    .cursor-pointer;
+    .base-color;
+  }
+}
+
+.large {
+  width: @btn-large-width;
+  height: @btn-large-height;
+  border-radius: @btn-default-border-radius;
+}
+.small {
+  width: @btn-small-width;
+  height: @btn-small-height;
+  border-radius: @btn-small-border-radius;
+}
+.disabled {
+  .cursor-not-allowed;
+}

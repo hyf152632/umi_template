@@ -43,9 +43,9 @@ function customLoadingProcessBarColor() {
 
   function setLoadingProcessBarColor(mode: 'dark' | 'light') {
     if (mode === 'dark') {
-      onClientEntry({ color: darkColors.mainColor });
+      onClientEntry({ color: darkColors.baseColor });
     } else {
-      onClientEntry({ color: lightColors.mainColor });
+      onClientEntry({ color: lightColors.baseColor });
     }
   }
 }

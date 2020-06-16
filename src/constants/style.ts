@@ -1,3 +1,3 @@
 export default {
-  mainColor: '#193BDE',
+  baseColor: '#193BDE',
 };
